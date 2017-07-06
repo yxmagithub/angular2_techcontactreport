@@ -1,0 +1,42 @@
+<head>
+    <base href="/">
+
+    <link rel="stylesheet" href="../shared/bootstrap.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' rel="stylesheet">
+</head>
+<my-header title="REPORT" [isShowCreateButton]="false"></my-header>
+<h1>Report</h1>
+<div class="row">
+    <div class="col-md-6">
+        <select #u (change)="filterName({ userId: u.value })" class="form-control">
+            <option value="">Select</option>
+            <option *ngFor="let user of users" value="{{ user.id }}">{{ user.name }}</option>
+        </select>
+        <pagination [items]="posts" (page-changed)="onPageChanged($event)"></pagination>
+        <ul class="list-group">
+            <spinner [visible]="postLoading"></spinner>
+            <li class="list-group-item mouse" [class.active]="currentPost == post" (click)="select(post)" *ngFor="let post of pagedPosts">{{ post.title }}</li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <div *ngIf="currentPost" class="panel panel-default">
+            <div class="panel-heading">{{ currentPost.title }}</div>
+            <div class="panel-body">
+                {{ currentPost.body }}
+                <hr>
+                <spinner [visible]="commentsLoading"></spinner>
+                <div *ngFor="let comment of currentPost.comments" class="media">
+                    <div class="media-left">
+                        <a href="#"><img class="media-object" src="http://lorempixel.com/80/80/people?random={{ comment.id }}" alt="..."></a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{ comment.name }}</h4>
+                        {{ comment.body }}asd
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<my-footer></my-footer>

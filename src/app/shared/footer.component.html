@@ -1,0 +1,13 @@
+<nav>
+  <a [routerLink]=" ['/collection'] " [ngClass]="{clickOn: !isListPage}">
+    <i>FAVORITE</i>
+  </a>
+  <a [routerLink]=" ['/list']" [ngClass]="{clickOn: isListPage}">
+    <em></em>
+    <i>CONTACTS</i>
+  </a>
+  <a [routerLink]=" ['/post']" [ngClass]="{clickOn: !isListPage}">
+    <!--<em></em>-->
+    <i>REPORT</i>
+  </a>
+</nav>

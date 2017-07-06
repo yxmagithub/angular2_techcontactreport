@@ -1,0 +1,38 @@
+<div class="detail-contain">
+  <div class="header-detail">
+    <a [routerLink]=" ['']" class="back-to-list">
+      <i class="icon-back"></i>
+      All Contacts
+    </a>
+    <a class="edit" (click)="editContact()">Edit</a>
+    <div class="name-and-icon">
+      <img src="./images/defProfile.jpg">
+      <span class="contact-name">
+        {{ detail.name }}
+        <i [ngClass]="{collect: detail.collection == 0, collected: detail.collection == 1}" (click)="collectTheContact()"></i>
+      </span>
+    </div>
+  </div>
+  <ul class="detail-info">
+    <li>
+      <p>Cell：</p>
+      <p>{{ detail.telNum | phone }}</p>
+    </li>
+    <li>
+      <p>Email：</p>
+      <p>{{ detail.email }}</p>
+    </li>
+    <li>
+      <p>DOB：</p>
+      <p>{{ detail.birthday | date:'yyyy-MM-dd'}}</p>
+    </li>
+    <li>
+      <p>Addr：</p>
+      <p>{{ detail.address }}</p>
+    </li>
+  </ul>
+  <article class="intro">
+    <h3>Intro:</h3>
+    Passionate in the life, enjoy sports
+  </article>
+</div>
