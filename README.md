@@ -1,7 +1,7 @@
 # angular2_techcontactreport
 Usage
 
-Clone this repository by using: git clone https://github.com/yxmagithub/angular2-techcontactreport.git
+Clone this repository by using: git clone https://github.com/yxmagithub/angular2_techcontactreport.git
 
 Make sure you have node.js installed（>= 6.0）
 
